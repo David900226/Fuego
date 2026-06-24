@@ -1,0 +1,1 @@
+Landing Brasa Burger ajustada. Abrir index.html. Fix aplicado solo a mobile: intro de video proporcionada, bloqueo de scroll durante 1.85s, fade out y hero estable.

@@ -3423,6 +3423,126 @@
       }
     }
 
+  
+
+    /* =========================================================
+       DAVID FIX FINAL — Mobile intro + hero solo celular
+       Desktop permanece intacto.
+       ========================================================= */
+    @media (max-width: 760px) {
+      html.mobile-intro-lock,
+      body.mobile-intro-lock {
+        overflow: hidden !important;
+        height: 100% !important;
+        touch-action: none !important;
+      }
+
+      .mobile-intro-video {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        position: fixed !important;
+        inset: 0 !important;
+        width: 100vw !important;
+        height: 100svh !important;
+        z-index: 99999 !important;
+        background: #0B0705 !important;
+        overflow: hidden !important;
+        pointer-events: auto !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        animation: none !important;
+        transition: opacity .72s cubic-bezier(.22,1,.36,1), visibility .72s cubic-bezier(.22,1,.36,1) !important;
+      }
+
+      .mobile-intro-video.is-fading {
+        opacity: 0 !important;
+        visibility: hidden !important;
+      }
+
+      .mobile-intro-video::after {
+        content: "" !important;
+        position: absolute !important;
+        inset: 0 !important;
+        z-index: 2 !important;
+        pointer-events: none !important;
+        background:
+          radial-gradient(circle at 50% 48%, rgba(242,106,27,.12), transparent 38%),
+          linear-gradient(180deg, rgba(11,7,5,.06) 0%, rgba(11,7,5,.14) 48%, rgba(11,7,5,.62) 100%) !important;
+      }
+
+      .mobile-intro-video__media {
+        position: relative !important;
+        inset: auto !important;
+        width: 100vw !important;
+        height: 100svh !important;
+        max-width: 100vw !important;
+        max-height: 100svh !important;
+        object-fit: contain !important;
+        object-position: center center !important;
+        transform: none !important;
+        opacity: 1 !important;
+        filter: none !important;
+        z-index: 1 !important;
+        background: #0B0705 !important;
+      }
+
+      body.mobile-intro-lock .hero-copy {
+        opacity: 0 !important;
+        transform: translateY(18px) !important;
+        filter: blur(5px) !important;
+      }
+
+      body.mobile-intro-done .hero-copy {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        filter: none !important;
+        transition: opacity .62s cubic-bezier(.22,1,.36,1), transform .62s cubic-bezier(.22,1,.36,1), filter .62s cubic-bezier(.22,1,.36,1) !important;
+      }
+
+      .hero {
+        min-height: 88svh !important;
+        background:
+          linear-gradient(90deg, #0B0705 0%, #0B0705 48%, rgba(11,7,5,.78) 68%, rgba(11,7,5,.25) 100%),
+          url("la-fundida.png") !important;
+        background-size: auto 56%, auto 54% !important;
+        background-repeat: no-repeat !important;
+        background-position: right -19vw center, right -19vw center !important;
+      }
+
+      .hero-inner {
+        min-height: 88svh !important;
+        padding: 124px 24px 72px !important;
+        align-items: center !important;
+      }
+
+      .hero video#heroVideo {
+        display: none !important;
+      }
+
+      .hero-copy {
+        max-width: 93% !important;
+        position: relative !important;
+        z-index: 5 !important;
+      }
+
+      .fixed-wa {
+        display: none !important;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .mobile-intro-video__media {
+        object-fit: contain !important;
+        transform: none !important;
+      }
+
+      .hero {
+        background-size: auto 52%, auto 52% !important;
+        background-position: right -30vw center, right -30vw center !important;
+      }
+    }
+
   </style>
 </head>
 
@@ -3729,38 +3849,46 @@
     })();
   </script>
   <script>
-
     (function() {
       var intro = document.querySelector('.mobile-intro-video');
       var introVideo = document.querySelector('.mobile-intro-video__media');
-      if (!intro || !introVideo) return;
-
       var isMobile = window.matchMedia && window.matchMedia('(max-width: 760px)').matches;
+
+      if (!intro) return;
+
       if (!isMobile) {
         intro.remove();
         return;
       }
 
-      introVideo.muted = true;
-      introVideo.playsInline = true;
+      document.documentElement.classList.add('mobile-intro-lock');
+      document.body.classList.add('mobile-intro-lock');
 
-      try {
-        introVideo.currentTime = 0;
-        var p = introVideo.play();
-        if (p && typeof p.catch === 'function') p.catch(function() {});
-      } catch(e) {}
+      if (introVideo) {
+        introVideo.muted = true;
+        introVideo.playsInline = true;
+        introVideo.setAttribute('playsinline', '');
+        introVideo.setAttribute('muted', '');
+        introVideo.preload = 'auto';
+        try {
+          introVideo.currentTime = 0;
+          introVideo.playbackRate = 1.15;
+          var p = introVideo.play();
+          if (p && typeof p.catch === 'function') p.catch(function() {});
+        } catch(e) {}
+      }
 
       window.setTimeout(function() {
-        if (intro && intro.parentNode) {
-          intro.style.opacity = '0';
-          intro.style.visibility = 'hidden';
-          window.setTimeout(function() {
-            if (intro && intro.parentNode) intro.parentNode.removeChild(intro);
-          }, 700);
-        }
-      }, 2200);
-    })();
+        intro.classList.add('is-fading');
+        document.documentElement.classList.remove('mobile-intro-lock');
+        document.body.classList.remove('mobile-intro-lock');
+        document.body.classList.add('mobile-intro-done');
 
+        window.setTimeout(function() {
+          if (intro && intro.parentNode) intro.parentNode.removeChild(intro);
+        }, 760);
+      }, 1850);
+    })();
   </script>
 </body>
 </html>
