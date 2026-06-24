@@ -2891,6 +2891,196 @@
       }
     }
 
+  
+    /* =========================================================
+       MOBILE FIX REAL — mover video físicamente hacia la DERECHA
+       PC intacta
+       ========================================================= */
+    @media (max-width: 760px) {
+      .hero {
+        background: #0B0705 !important;
+      }
+
+      .hero video {
+        inset: 0 auto 0 0 !important;
+        width: 124% !important;
+        max-width: none !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center center !important;
+        transform: translateX(15%) scale(.98) !important;
+        opacity: 1 !important;
+        filter: none !important;
+        animation: none !important;
+      }
+
+      .hero::before {
+        background:
+          linear-gradient(90deg,
+            rgba(11,7,5,.985) 0%,
+            rgba(11,7,5,.94) 34%,
+            rgba(11,7,5,.72) 50%,
+            rgba(11,7,5,.28) 68%,
+            rgba(11,7,5,.10) 86%,
+            rgba(11,7,5,.18) 100%
+          ),
+          linear-gradient(180deg,
+            rgba(11,7,5,.26) 0%,
+            rgba(11,7,5,.10) 30%,
+            rgba(11,7,5,.34) 68%,
+            rgba(11,7,5,.84) 100%
+          ) !important;
+      }
+
+      .hero-copy {
+        max-width: 92% !important;
+        position: relative !important;
+        z-index: 5 !important;
+      }
+
+      h1 {
+        text-shadow:
+          0 12px 46px rgba(0,0,0,.98),
+          0 3px 10px rgba(0,0,0,.84) !important;
+      }
+
+      .hero-sub {
+        text-shadow:
+          0 6px 24px rgba(0,0,0,.96),
+          0 1px 6px rgba(0,0,0,.82) !important;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .hero video {
+        width: 130% !important;
+        transform: translateX(18%) scale(.98) !important;
+        object-position: center center !important;
+      }
+
+      .hero::before {
+        background:
+          linear-gradient(90deg,
+            rgba(11,7,5,.99) 0%,
+            rgba(11,7,5,.955) 36%,
+            rgba(11,7,5,.76) 53%,
+            rgba(11,7,5,.30) 70%,
+            rgba(11,7,5,.10) 88%,
+            rgba(11,7,5,.18) 100%
+          ),
+          linear-gradient(180deg,
+            rgba(11,7,5,.26) 0%,
+            rgba(11,7,5,.10) 30%,
+            rgba(11,7,5,.34) 68%,
+            rgba(11,7,5,.84) 100%
+          ) !important;
+      }
+    }
+
+  
+    /* =========================================================
+       MOBILE FIX — video anclado a la DERECHA, no desplazado
+       PC intacta
+       ========================================================= */
+    @media (max-width: 760px) {
+      .hero {
+        background:
+          linear-gradient(90deg, #0B0705 0%, #0B0705 48%, transparent 100%) !important;
+        overflow: hidden !important;
+      }
+
+      .hero video {
+        position: absolute !important;
+        top: 0 !important;
+        right: -20% !important;
+        bottom: auto !important;
+        left: auto !important;
+        width: 92% !important;
+        max-width: none !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center center !important;
+        transform: none !important;
+        opacity: 1 !important;
+        filter: none !important;
+        animation: none !important;
+      }
+
+      .hero::before {
+        background:
+          linear-gradient(90deg,
+            rgba(11,7,5,.99) 0%,
+            rgba(11,7,5,.97) 30%,
+            rgba(11,7,5,.88) 46%,
+            rgba(11,7,5,.56) 62%,
+            rgba(11,7,5,.18) 80%,
+            rgba(11,7,5,.10) 100%
+          ),
+          linear-gradient(180deg,
+            rgba(11,7,5,.28) 0%,
+            rgba(11,7,5,.10) 30%,
+            rgba(11,7,5,.32) 68%,
+            rgba(11,7,5,.84) 100%
+          ) !important;
+      }
+
+      .hero::after {
+        box-shadow:
+          inset 0 76px 82px rgba(11,7,5,.52),
+          inset 0 -112px 132px rgba(11,7,5,.84),
+          inset 0 0 42px rgba(0,0,0,.08) !important;
+      }
+
+      .hero-copy {
+        position: relative !important;
+        z-index: 5 !important;
+        max-width: 92% !important;
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        animation: none !important;
+      }
+
+      h1 {
+        text-shadow:
+          0 12px 46px rgba(0,0,0,.98),
+          0 3px 10px rgba(0,0,0,.84) !important;
+      }
+
+      .hero-sub {
+        text-shadow:
+          0 6px 24px rgba(0,0,0,.96),
+          0 1px 6px rgba(0,0,0,.82) !important;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .hero video {
+        right: -28% !important;
+        width: 104% !important;
+        object-position: center center !important;
+        transform: none !important;
+      }
+
+      .hero::before {
+        background:
+          linear-gradient(90deg,
+            rgba(11,7,5,.995) 0%,
+            rgba(11,7,5,.975) 32%,
+            rgba(11,7,5,.90) 49%,
+            rgba(11,7,5,.60) 66%,
+            rgba(11,7,5,.20) 84%,
+            rgba(11,7,5,.10) 100%
+          ),
+          linear-gradient(180deg,
+            rgba(11,7,5,.28) 0%,
+            rgba(11,7,5,.10) 30%,
+            rgba(11,7,5,.32) 68%,
+            rgba(11,7,5,.84) 100%
+          ) !important;
+      }
+    }
+
   </style>
 </head>
 
