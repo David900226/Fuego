@@ -3543,6 +3543,78 @@
       }
     }
 
+
+    /* =========================================================
+       FINAL CORRECTION — intro móvil full screen real
+       - El video llena TODA la pantalla del celular
+       - La hamburguesa queda centrada/encuadrada
+       - A los 1.5s inicia fade; antes de 2s entra la página
+       - Solo aplica en móvil
+       ========================================================= */
+    @media (max-width: 760px) {
+      .mobile-intro-video {
+        display: block !important;
+        position: fixed !important;
+        inset: 0 !important;
+        width: 100vw !important;
+        height: 100svh !important;
+        z-index: 99999 !important;
+        overflow: hidden !important;
+        background: #0B0705 !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        transition: opacity .45s cubic-bezier(.22,1,.36,1), visibility .45s cubic-bezier(.22,1,.36,1) !important;
+      }
+
+      .mobile-intro-video.is-fading {
+        opacity: 0 !important;
+        visibility: hidden !important;
+      }
+
+      .mobile-intro-video__media {
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100vw !important;
+        height: 100svh !important;
+        min-width: 100vw !important;
+        min-height: 100svh !important;
+        max-width: none !important;
+        max-height: none !important;
+        object-fit: cover !important;
+        object-position: 50% 50% !important;
+        transform: none !important;
+        opacity: 1 !important;
+        filter: none !important;
+        background: #0B0705 !important;
+      }
+
+      .mobile-intro-video::after {
+        content: "" !important;
+        position: absolute !important;
+        inset: 0 !important;
+        z-index: 2 !important;
+        pointer-events: none !important;
+        background:
+          radial-gradient(circle at 50% 47%, rgba(242,106,27,.08), transparent 42%),
+          linear-gradient(180deg, rgba(0,0,0,.04) 0%, rgba(0,0,0,.06) 46%, rgba(11,7,5,.32) 100%) !important;
+      }
+
+      body.mobile-intro-lock .nav,
+      body.mobile-intro-lock .fixed-wa,
+      body.mobile-intro-lock .hero-copy {
+        opacity: 0 !important;
+        pointer-events: none !important;
+      }
+
+      body.mobile-intro-done .hero-copy {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        transition: opacity .45s cubic-bezier(.22,1,.36,1), transform .45s cubic-bezier(.22,1,.36,1), filter .45s cubic-bezier(.22,1,.36,1) !important;
+      }
+    }
+
   </style>
 </head>
 
@@ -3550,7 +3622,7 @@
   <div class="page-shell">
     <div class="mobile-intro-video" aria-hidden="true">
       <video class="mobile-intro-video__media" muted playsinline autoplay preload="auto">
-        <source src="hero-scroll-burger.mp4" type="video/mp4" />
+        <source src="hero-scroll-burger-mobile.mp4" type="video/mp4" />
       </video>
     </div>
     <div class="fixed-wa">
@@ -3573,7 +3645,7 @@
 
     <header class="hero" id="hero">
       <video id="heroVideo" muted playsinline preload="auto" poster="la-fundida.png">
-        <source src="hero-scroll-burger.mp4" type="video/mp4" />
+        <source src="hero-scroll-burger-mobile.mp4" type="video/mp4" />
       </video>
       <div class="hero-inner">
         <div class="hero-copy reveal">
@@ -3886,8 +3958,8 @@
 
         window.setTimeout(function() {
           if (intro && intro.parentNode) intro.parentNode.removeChild(intro);
-        }, 760);
-      }, 1850);
+        }, 520);
+      }, 1500);
     })();
   </script>
 </body>

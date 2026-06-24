@@ -1,1 +1,1 @@
-Landing Brasa Burger ajustada. Abrir index.html. Fix aplicado solo a mobile: intro de video proporcionada, bloqueo de scroll durante 1.85s, fade out y hero estable.
+ZIP corregido: intro móvil fullscreen 9:16. El video móvil llena la pantalla, dura máximo 2 segundos, se desvanece y luego inicia el hero. Desktop queda intacto.
