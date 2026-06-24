@@ -3081,11 +3081,358 @@
       }
     }
 
+  
+    /* =========================================================
+       MOBILE FIX DEFINITIVO:
+       video SOLO en la derecha, izquierda libre para el título.
+       PC intacta.
+       ========================================================= */
+    @media (max-width: 760px) {
+      .hero {
+        background:
+          linear-gradient(90deg, #0B0705 0%, #0B0705 57%, #140B05 100%) !important;
+        overflow: hidden !important;
+      }
+
+      .hero video {
+        position: absolute !important;
+        top: 0 !important;
+        right: -6vw !important;
+        left: auto !important;
+        bottom: auto !important;
+
+        width: 58vw !important;
+        max-width: none !important;
+        height: 100% !important;
+
+        object-fit: cover !important;
+        object-position: center center !important;
+        transform: none !important;
+        opacity: 1 !important;
+        filter: none !important;
+        animation: none !important;
+      }
+
+      .hero::before {
+        background:
+          linear-gradient(90deg,
+            rgba(11,7,5,1) 0%,
+            rgba(11,7,5,.995) 35%,
+            rgba(11,7,5,.96) 50%,
+            rgba(11,7,5,.68) 63%,
+            rgba(11,7,5,.18) 78%,
+            rgba(11,7,5,.02) 100%
+          ),
+          linear-gradient(180deg,
+            rgba(11,7,5,.22) 0%,
+            rgba(11,7,5,.10) 32%,
+            rgba(11,7,5,.34) 70%,
+            rgba(11,7,5,.88) 100%
+          ) !important;
+      }
+
+      .hero::after {
+        box-shadow:
+          inset 0 76px 84px rgba(11,7,5,.54),
+          inset 0 -112px 132px rgba(11,7,5,.88),
+          inset 0 0 34px rgba(0,0,0,.06) !important;
+      }
+
+      .hero-copy {
+        position: relative !important;
+        z-index: 5 !important;
+        max-width: 88% !important;
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        animation: none !important;
+      }
+
+      h1 {
+        text-shadow:
+          0 12px 46px rgba(0,0,0,.98),
+          0 3px 10px rgba(0,0,0,.84) !important;
+      }
+
+      .hero-sub {
+        max-width: 92% !important;
+        text-shadow:
+          0 6px 24px rgba(0,0,0,.96),
+          0 1px 6px rgba(0,0,0,.82) !important;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .hero video {
+        right: -7vw !important;
+        width: 56vw !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center center !important;
+        transform: none !important;
+      }
+
+      .hero::before {
+        background:
+          linear-gradient(90deg,
+            rgba(11,7,5,1) 0%,
+            rgba(11,7,5,.995) 38%,
+            rgba(11,7,5,.97) 53%,
+            rgba(11,7,5,.74) 66%,
+            rgba(11,7,5,.24) 81%,
+            rgba(11,7,5,.03) 100%
+          ),
+          linear-gradient(180deg,
+            rgba(11,7,5,.22) 0%,
+            rgba(11,7,5,.10) 32%,
+            rgba(11,7,5,.34) 70%,
+            rgba(11,7,5,.88) 100%
+          ) !important;
+      }
+    }
+
+  
+    /* =========================================================
+       MOBILE ONLY — intro overlay separado:
+       - Video centrado 1.5s
+       - Fade out
+       - Hero queda estable con imagen/poster de burger
+       - PC intacta
+       ========================================================= */
+
+    .mobile-intro-video {
+      display: none;
+    }
+
+    @media (max-width: 760px) {
+      body {
+        padding-bottom: 0 !important;
+      }
+
+      .fixed-wa {
+        display: none !important;
+      }
+
+      .mobile-intro-video {
+        display: block !important;
+        position: fixed !important;
+        inset: 0 !important;
+        z-index: 9999 !important;
+        background: #0B0705 !important;
+        pointer-events: none !important;
+        overflow: hidden !important;
+        animation: brasaIntroOverlayOut .65s cubic-bezier(.22,1,.36,1) 1.5s forwards !important;
+      }
+
+      .mobile-intro-video::after {
+        content: "" !important;
+        position: absolute !important;
+        inset: 0 !important;
+        background:
+          radial-gradient(circle at 50% 48%, rgba(242,106,27,.16), transparent 36%),
+          linear-gradient(180deg, rgba(11,7,5,.06), rgba(11,7,5,.34) 72%, rgba(11,7,5,.82)) !important;
+        z-index: 2 !important;
+      }
+
+      .mobile-intro-video__media {
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center center !important;
+        transform: scale(1.04) !important;
+        opacity: 1 !important;
+        filter: none !important;
+        z-index: 1 !important;
+      }
+
+      @keyframes brasaIntroOverlayOut {
+        0% {
+          opacity: 1;
+          visibility: visible;
+        }
+        99% {
+          opacity: 0;
+          visibility: visible;
+        }
+        100% {
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
+
+      .nav {
+        min-height: 74px !important;
+        background: rgba(11,7,5,.78) !important;
+      }
+
+      .nav-inner {
+        min-height: 74px !important;
+        padding: 7px 22px !important;
+      }
+
+      .brand-logo {
+        height: 48px !important;
+      }
+
+      .nav-links .btn {
+        min-height: 48px !important;
+        padding: 11px 19px !important;
+        font-size: .9rem !important;
+        box-shadow: 0 12px 30px rgba(242,106,27,.32) !important;
+      }
+
+      .hero {
+        min-height: 84svh !important;
+        background:
+          linear-gradient(90deg, #0B0705 0%, #0B0705 52%, rgba(11,7,5,.72) 72%, rgba(11,7,5,.22) 100%),
+          url("la-fundida.png") !important;
+        background-size: auto 58%, auto 58% !important;
+        background-repeat: no-repeat !important;
+        background-position: right -22vw center, right -22vw center !important;
+        overflow: hidden !important;
+      }
+
+      .hero-inner {
+        min-height: 84svh !important;
+        padding: 124px 24px 70px !important;
+        align-items: center !important;
+      }
+
+      .hero video {
+        display: none !important;
+      }
+
+      .hero::before {
+        background:
+          linear-gradient(90deg,
+            rgba(11,7,5,1) 0%,
+            rgba(11,7,5,.99) 38%,
+            rgba(11,7,5,.90) 56%,
+            rgba(11,7,5,.50) 74%,
+            rgba(11,7,5,.10) 100%
+          ),
+          linear-gradient(180deg,
+            rgba(11,7,5,.20) 0%,
+            rgba(11,7,5,.04) 36%,
+            rgba(11,7,5,.30) 70%,
+            rgba(11,7,5,.86) 100%
+          ) !important;
+      }
+
+      .hero::after {
+        box-shadow:
+          inset 0 76px 84px rgba(11,7,5,.50),
+          inset 0 -112px 132px rgba(11,7,5,.86),
+          inset 0 0 34px rgba(0,0,0,.06) !important;
+      }
+
+      .hero-copy {
+        position: relative !important;
+        z-index: 5 !important;
+        max-width: 92% !important;
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        animation: none !important;
+      }
+
+      .eyebrow {
+        margin-bottom: 18px !important;
+        padding: 8px 15px !important;
+        background: rgba(11,7,5,.46) !important;
+        border-color: rgba(242,106,27,.42) !important;
+        backdrop-filter: blur(12px) !important;
+        -webkit-backdrop-filter: blur(12px) !important;
+      }
+
+      h1 {
+        font-size: clamp(2.95rem, 12.8vw, 4rem) !important;
+        line-height: .96 !important;
+        letter-spacing: -.055em !important;
+        text-shadow:
+          0 12px 46px rgba(0,0,0,.98),
+          0 3px 10px rgba(0,0,0,.84) !important;
+      }
+
+      .hero-sub {
+        max-width: 92% !important;
+        margin-top: 20px !important;
+        color: #F0D1AD !important;
+        font-size: 1.02rem !important;
+        line-height: 1.58 !important;
+        text-shadow:
+          0 6px 24px rgba(0,0,0,.96),
+          0 1px 6px rgba(0,0,0,.82) !important;
+      }
+
+      .hero-actions {
+        margin-top: 28px !important;
+        gap: 12px !important;
+      }
+
+      .hero-actions .btn {
+        min-height: 58px !important;
+        border-radius: 20px !important;
+        font-size: 1rem !important;
+      }
+
+      .hero-actions .btn-outline {
+        background: rgba(11,7,5,.48) !important;
+        border-color: rgba(255,255,255,.20) !important;
+        backdrop-filter: blur(13px) !important;
+        -webkit-backdrop-filter: blur(13px) !important;
+      }
+
+      .scroll-cue {
+        display: none !important;
+      }
+
+      .trust-strip {
+        margin-top: 0 !important;
+        padding: 24px 22px 0 !important;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .hero {
+        min-height: 83svh !important;
+        background-size: auto 56%, auto 56% !important;
+        background-position: right -28vw center, right -28vw center !important;
+      }
+
+      .hero-inner {
+        min-height: 83svh !important;
+        padding: 120px 22px 68px !important;
+      }
+
+      h1 {
+        font-size: clamp(2.85rem, 12.7vw, 3.85rem) !important;
+      }
+
+      .mobile-intro-video__media {
+        object-position: center center !important;
+        transform: scale(1.05) !important;
+      }
+    }
+
+    @media (max-width: 760px) and (prefers-reduced-motion: reduce) {
+      .mobile-intro-video {
+        display: none !important;
+      }
+    }
+
   </style>
 </head>
 
 <body>
   <div class="page-shell">
+    <div class="mobile-intro-video" aria-hidden="true">
+      <video class="mobile-intro-video__media" muted playsinline autoplay preload="auto">
+        <source src="hero-scroll-burger.mp4" type="video/mp4" />
+      </video>
+    </div>
     <div class="fixed-wa">
       <a href="https://wa.me/573163947414?text=Hola%2C%20quiero%20hacer%20un%20pedido%20en%20Brasa%20Burger" target="_blank" rel="noopener noreferrer">Pedir por WhatsApp</a>
     </div>
@@ -3380,6 +3727,40 @@
         if (rect.top < window.innerHeight && rect.bottom > 0) playFromStart();
       });
     })();
+  </script>
+  <script>
+
+    (function() {
+      var intro = document.querySelector('.mobile-intro-video');
+      var introVideo = document.querySelector('.mobile-intro-video__media');
+      if (!intro || !introVideo) return;
+
+      var isMobile = window.matchMedia && window.matchMedia('(max-width: 760px)').matches;
+      if (!isMobile) {
+        intro.remove();
+        return;
+      }
+
+      introVideo.muted = true;
+      introVideo.playsInline = true;
+
+      try {
+        introVideo.currentTime = 0;
+        var p = introVideo.play();
+        if (p && typeof p.catch === 'function') p.catch(function() {});
+      } catch(e) {}
+
+      window.setTimeout(function() {
+        if (intro && intro.parentNode) {
+          intro.style.opacity = '0';
+          intro.style.visibility = 'hidden';
+          window.setTimeout(function() {
+            if (intro && intro.parentNode) intro.parentNode.removeChild(intro);
+          }, 700);
+        }
+      }, 2200);
+    })();
+
   </script>
 </body>
 </html>
