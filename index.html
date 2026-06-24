@@ -2004,6 +2004,178 @@
       }
     }
 
+  
+    /* =========================================================
+       MOBILE ONLY: intro rápido con video + fade al hero estable
+       Desktop queda intacto.
+       ========================================================= */
+    @media (max-width: 760px) {
+      .hero {
+        min-height: 88svh !important;
+        background: #0B0705 !important;
+      }
+
+      .hero-inner {
+        min-height: 88svh !important;
+        padding: 126px 24px 72px !important;
+        align-items: flex-end !important;
+      }
+
+      .hero video {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: 68% 39% !important;
+        transform: translateX(0) scale(1.05) !important;
+        opacity: .95 !important;
+        filter: saturate(1.12) contrast(1.08) brightness(1.02) !important;
+        animation: mobileVideoIntroFade 2.25s cubic-bezier(.22,1,.36,1) .15s forwards !important;
+      }
+
+      .hero::before {
+        background:
+          radial-gradient(circle at 70% 34%, rgba(242,106,27,.12), transparent 31%),
+          linear-gradient(180deg,
+            rgba(11,7,5,.16) 0%,
+            rgba(11,7,5,.12) 26%,
+            rgba(11,7,5,.54) 58%,
+            rgba(11,7,5,.96) 100%
+          ),
+          linear-gradient(90deg,
+            rgba(11,7,5,.76) 0%,
+            rgba(11,7,5,.60) 38%,
+            rgba(11,7,5,.24) 68%,
+            rgba(11,7,5,.48) 100%
+          ) !important;
+        animation: mobileOverlayIntroSettle 2.25s cubic-bezier(.22,1,.36,1) .15s forwards !important;
+      }
+
+      .hero::after {
+        box-shadow:
+          inset 0 88px 88px rgba(11,7,5,.64),
+          inset 0 -165px 150px rgba(11,7,5,.98),
+          inset 0 0 70px rgba(0,0,0,.16) !important;
+      }
+
+      .hero-copy {
+        position: relative !important;
+        z-index: 4 !important;
+        max-width: 100% !important;
+        opacity: 0 !important;
+        transform: translateY(18px) !important;
+        animation: mobileHeroCopyIn .72s cubic-bezier(.22,1,.36,1) 1.42s forwards !important;
+      }
+
+      .eyebrow {
+        background: rgba(11,7,5,.50) !important;
+        border-color: rgba(242,106,27,.38) !important;
+        backdrop-filter: blur(14px) !important;
+        -webkit-backdrop-filter: blur(14px) !important;
+      }
+
+      h1 {
+        text-shadow: 0 9px 36px rgba(0,0,0,.76) !important;
+      }
+
+      .hero-sub {
+        color: #E0C3A2 !important;
+        text-shadow: 0 4px 22px rgba(0,0,0,.76) !important;
+      }
+
+      .hero-actions .btn-outline {
+        background: rgba(11,7,5,.52) !important;
+        border-color: rgba(255,255,255,.16) !important;
+        backdrop-filter: blur(14px) !important;
+        -webkit-backdrop-filter: blur(14px) !important;
+      }
+
+      .scroll-cue {
+        display: none !important;
+      }
+
+      @keyframes mobileVideoIntroFade {
+        0% {
+          opacity: .98;
+          filter: saturate(1.16) contrast(1.08) brightness(1.08);
+          transform: translateX(0) scale(1.06);
+        }
+        58% {
+          opacity: .98;
+          filter: saturate(1.16) contrast(1.08) brightness(1.02);
+          transform: translateX(0) scale(1.04);
+        }
+        100% {
+          opacity: .52;
+          filter: saturate(1.04) contrast(1.03) brightness(.62);
+          transform: translateX(0) scale(1.03);
+        }
+      }
+
+      @keyframes mobileOverlayIntroSettle {
+        0% {
+          opacity: .72;
+        }
+        55% {
+          opacity: .84;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      @keyframes mobileHeroCopyIn {
+        0% {
+          opacity: 0;
+          transform: translateY(18px);
+          filter: blur(5px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+          filter: blur(0);
+        }
+      }
+    }
+
+    @media (max-width: 420px) {
+      .hero {
+        min-height: 86svh !important;
+      }
+
+      .hero-inner {
+        min-height: 86svh !important;
+        padding: 118px 22px 66px !important;
+      }
+
+      .hero video {
+        object-position: 64% 38% !important;
+        transform: scale(1.05) !important;
+      }
+
+      h1 {
+        font-size: clamp(3rem, 13.2vw, 4rem) !important;
+      }
+    }
+
+    @media (max-width: 760px) and (prefers-reduced-motion: reduce) {
+      .hero video,
+      .hero::before,
+      .hero-copy {
+        animation: none !important;
+      }
+
+      .hero-copy {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+      }
+
+      .hero video {
+        opacity: .55 !important;
+        filter: saturate(1.04) contrast(1.03) brightness(.62) !important;
+      }
+    }
+
   </style>
 </head>
 
