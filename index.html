@@ -3630,6 +3630,7 @@
       }
 
       .mobile-intro-poster {
+        display: none !important;
         display: block !important;
         position: fixed !important;
         inset: 0 !important;
@@ -3732,15 +3733,18 @@
       }
     }
 
+  
+    @media (max-width: 760px) {
+      .mobile-intro-video,
+      .mobile-intro-poster { display: none !important; }
+    }
+
   </style>
 </head>
 
 <body>
   <div class="page-shell">
-    <div class="mobile-intro-video mobile-intro-poster" aria-hidden="true">
-      <img class="mobile-intro-video__media mobile-intro-poster__media" src="mobile-wow-intro.jpg" alt="" />
-    </div>
-    <div class="fixed-wa">
+<div class="fixed-wa">
       <a href="https://wa.me/573163947414?text=Hola%2C%20quiero%20hacer%20un%20pedido%20en%20Brasa%20Burger" target="_blank" rel="noopener noreferrer">Pedir por WhatsApp</a>
     </div>
 
@@ -4033,33 +4037,6 @@
         var rect = hero.getBoundingClientRect();
         if (rect.top < window.innerHeight && rect.bottom > 0) playFromStart();
       });
-    })();
-  </script>
-  <script>
-    (function() {
-      var intro = document.querySelector('.mobile-intro-video');
-      var isMobile = window.matchMedia && window.matchMedia('(max-width: 760px)').matches;
-
-      if (!intro) return;
-
-      if (!isMobile) {
-        intro.remove();
-        return;
-      }
-
-      document.documentElement.classList.add('mobile-intro-lock');
-      document.body.classList.add('mobile-intro-lock');
-
-      window.setTimeout(function() {
-        intro.classList.add('is-fading');
-        document.documentElement.classList.remove('mobile-intro-lock');
-        document.body.classList.remove('mobile-intro-lock');
-        document.body.classList.add('mobile-intro-done');
-
-        window.setTimeout(function() {
-          if (intro && intro.parentNode) intro.parentNode.removeChild(intro);
-        }, 520);
-      }, 1550);
     })();
   </script>
 </body>
