@@ -2822,6 +2822,75 @@
       }
     }
 
+  
+    /* =========================================================
+       MOBILE HERO — video más hacia la derecha
+       PC intacta
+       ========================================================= */
+    @media (max-width: 760px) {
+      .hero video {
+        object-position: 82% 34% !important;
+        transform: translateX(0) scale(1.01) !important;
+      }
+
+      .hero::before {
+        background:
+          linear-gradient(90deg,
+            rgba(11,7,5,.96) 0%,
+            rgba(11,7,5,.88) 36%,
+            rgba(11,7,5,.50) 56%,
+            rgba(11,7,5,.12) 77%,
+            rgba(11,7,5,.18) 100%
+          ),
+          linear-gradient(180deg,
+            rgba(11,7,5,.22) 0%,
+            rgba(11,7,5,.08) 28%,
+            rgba(11,7,5,.28) 66%,
+            rgba(11,7,5,.82) 100%
+          ) !important;
+      }
+
+      .hero-copy {
+        max-width: 94% !important;
+      }
+
+      h1 {
+        text-shadow:
+          0 12px 46px rgba(0,0,0,.98),
+          0 3px 10px rgba(0,0,0,.82) !important;
+      }
+
+      .hero-sub {
+        text-shadow:
+          0 6px 24px rgba(0,0,0,.96),
+          0 1px 6px rgba(0,0,0,.80) !important;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .hero video {
+        object-position: 84% 34% !important;
+        transform: scale(1.00) !important;
+      }
+
+      .hero::before {
+        background:
+          linear-gradient(90deg,
+            rgba(11,7,5,.97) 0%,
+            rgba(11,7,5,.90) 38%,
+            rgba(11,7,5,.54) 58%,
+            rgba(11,7,5,.14) 78%,
+            rgba(11,7,5,.18) 100%
+          ),
+          linear-gradient(180deg,
+            rgba(11,7,5,.22) 0%,
+            rgba(11,7,5,.08) 30%,
+            rgba(11,7,5,.30) 66%,
+            rgba(11,7,5,.84) 100%
+          ) !important;
+      }
+    }
+
   </style>
 </head>
 
