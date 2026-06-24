@@ -1,1 +1,1 @@
-ZIP corregido: intro móvil fullscreen 9:16. El video móvil llena la pantalla, dura máximo 2 segundos, se desvanece y luego inicia el hero. Desktop queda intacto.
+Versión móvil ajustada: desktop mantiene video; móvil usa intro premium tipo poster animado con fade y hero estable. Abrir index.html o desplegar carpeta completa.

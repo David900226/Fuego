@@ -3615,15 +3615,130 @@
       }
     }
 
+
+    /* =========================================================
+       MOBILE WOW POSTER INTRO — versión final para clase
+       - Desktop conserva video cinematográfico
+       - Móvil usa poster premium controlado: estable, rápido y con wow
+       ========================================================= */
+    @media (max-width: 760px) {
+      html.mobile-intro-lock,
+      body.mobile-intro-lock {
+        overflow: hidden !important;
+        height: 100% !important;
+        touch-action: none !important;
+      }
+
+      .mobile-intro-poster {
+        display: block !important;
+        position: fixed !important;
+        inset: 0 !important;
+        width: 100vw !important;
+        height: 100svh !important;
+        z-index: 99999 !important;
+        overflow: hidden !important;
+        background: #0B0705 !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        transition: opacity .48s cubic-bezier(.22,1,.36,1), visibility .48s cubic-bezier(.22,1,.36,1) !important;
+      }
+
+      .mobile-intro-poster.is-fading {
+        opacity: 0 !important;
+        visibility: hidden !important;
+      }
+
+      .mobile-intro-poster__media {
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100vw !important;
+        height: 100svh !important;
+        min-width: 100vw !important;
+        min-height: 100svh !important;
+        max-width: none !important;
+        max-height: none !important;
+        object-fit: cover !important;
+        object-position: center center !important;
+        transform: scale(1.02) !important;
+        animation: brasaPosterZoom 1.95s cubic-bezier(.22,1,.36,1) forwards !important;
+        filter: saturate(1.07) contrast(1.04) brightness(1.02) !important;
+      }
+
+      .mobile-intro-poster::before {
+        content: "" !important;
+        position: absolute !important;
+        inset: 0 !important;
+        z-index: 2 !important;
+        pointer-events: none !important;
+        background:
+          radial-gradient(circle at 50% 48%, rgba(255,197,49,.08), transparent 31%),
+          linear-gradient(180deg, rgba(0,0,0,.06) 0%, rgba(0,0,0,.04) 42%, rgba(11,7,5,.42) 100%) !important;
+      }
+
+      .mobile-intro-poster::after {
+        content: "" !important;
+        position: absolute !important;
+        left: 11% !important;
+        right: 11% !important;
+        bottom: 7.5% !important;
+        height: 2px !important;
+        z-index: 3 !important;
+        border-radius: 999px !important;
+        background: linear-gradient(90deg, transparent, rgba(242,106,27,.85), rgba(255,197,49,.7), transparent) !important;
+        box-shadow: 0 0 28px rgba(242,106,27,.38) !important;
+        opacity: .85 !important;
+      }
+
+      @keyframes brasaPosterZoom {
+        0% { transform: scale(1.02); }
+        100% { transform: scale(1.075); }
+      }
+
+      body.mobile-intro-lock .nav,
+      body.mobile-intro-lock .fixed-wa,
+      body.mobile-intro-lock .hero-copy {
+        opacity: 0 !important;
+        pointer-events: none !important;
+      }
+
+      body.mobile-intro-done .hero-copy {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        transition: opacity .52s cubic-bezier(.22,1,.36,1), transform .52s cubic-bezier(.22,1,.36,1), filter .52s cubic-bezier(.22,1,.36,1) !important;
+      }
+
+      .hero {
+        min-height: 88svh !important;
+        background:
+          radial-gradient(circle at 82% 44%, rgba(242,106,27,.22), transparent 28%),
+          linear-gradient(90deg, #0B0705 0%, #0B0705 48%, rgba(11,7,5,.78) 68%, rgba(11,7,5,.22) 100%),
+          url("la-fundida.png") !important;
+        background-size: auto 56%, auto, auto 54% !important;
+        background-repeat: no-repeat !important;
+        background-position: right -18vw center, center, right -18vw center !important;
+      }
+
+      .hero video#heroVideo {
+        display: none !important;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .hero {
+        background-size: auto 50%, auto, auto 50% !important;
+        background-position: right -30vw center, center, right -30vw center !important;
+      }
+    }
+
   </style>
 </head>
 
 <body>
   <div class="page-shell">
-    <div class="mobile-intro-video" aria-hidden="true">
-      <video class="mobile-intro-video__media" muted playsinline autoplay preload="auto">
-        <source src="hero-scroll-burger-mobile.mp4" type="video/mp4" />
-      </video>
+    <div class="mobile-intro-video mobile-intro-poster" aria-hidden="true">
+      <img class="mobile-intro-video__media mobile-intro-poster__media" src="mobile-wow-intro.jpg" alt="" />
     </div>
     <div class="fixed-wa">
       <a href="https://wa.me/573163947414?text=Hola%2C%20quiero%20hacer%20un%20pedido%20en%20Brasa%20Burger" target="_blank" rel="noopener noreferrer">Pedir por WhatsApp</a>
@@ -3645,7 +3760,7 @@
 
     <header class="hero" id="hero">
       <video id="heroVideo" muted playsinline preload="auto" poster="la-fundida.png">
-        <source src="hero-scroll-burger-mobile.mp4" type="video/mp4" />
+        <source src="hero-scroll-burger.mp4" type="video/mp4" />
       </video>
       <div class="hero-inner">
         <div class="hero-copy reveal">
@@ -3923,7 +4038,6 @@
   <script>
     (function() {
       var intro = document.querySelector('.mobile-intro-video');
-      var introVideo = document.querySelector('.mobile-intro-video__media');
       var isMobile = window.matchMedia && window.matchMedia('(max-width: 760px)').matches;
 
       if (!intro) return;
@@ -3936,20 +4050,6 @@
       document.documentElement.classList.add('mobile-intro-lock');
       document.body.classList.add('mobile-intro-lock');
 
-      if (introVideo) {
-        introVideo.muted = true;
-        introVideo.playsInline = true;
-        introVideo.setAttribute('playsinline', '');
-        introVideo.setAttribute('muted', '');
-        introVideo.preload = 'auto';
-        try {
-          introVideo.currentTime = 0;
-          introVideo.playbackRate = 1.15;
-          var p = introVideo.play();
-          if (p && typeof p.catch === 'function') p.catch(function() {});
-        } catch(e) {}
-      }
-
       window.setTimeout(function() {
         intro.classList.add('is-fading');
         document.documentElement.classList.remove('mobile-intro-lock');
@@ -3959,7 +4059,7 @@
         window.setTimeout(function() {
           if (intro && intro.parentNode) intro.parentNode.removeChild(intro);
         }, 520);
-      }, 1500);
+      }, 1550);
     })();
   </script>
 </body>
