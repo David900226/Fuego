@@ -2176,6 +2176,323 @@
       }
     }
 
+  
+    /* =========================================================
+       MOBILE HERO FIX DEFINITIVO — texto visible, video premium, PC intacta
+       ========================================================= */
+    @media (max-width: 760px) {
+      .hero {
+        min-height: auto !important;
+        background: #0B0705 !important;
+      }
+
+      .hero-inner {
+        min-height: auto !important;
+        padding: 132px 24px 54px !important;
+        align-items: flex-start !important;
+      }
+
+      .hero-copy {
+        position: relative !important;
+        z-index: 5 !important;
+        max-width: 100% !important;
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        animation: none !important;
+      }
+
+      .hero video {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: 69% 38% !important;
+        transform: translateX(0) scale(1.02) !important;
+        opacity: .78 !important;
+        filter: saturate(1.08) contrast(1.05) brightness(.72) !important;
+        animation: none !important;
+      }
+
+      .hero::before {
+        animation: none !important;
+        background:
+          radial-gradient(circle at 72% 34%, rgba(242,106,27,.12), transparent 31%),
+          linear-gradient(90deg,
+            rgba(11,7,5,.94) 0%,
+            rgba(11,7,5,.86) 42%,
+            rgba(11,7,5,.44) 68%,
+            rgba(11,7,5,.62) 100%
+          ),
+          linear-gradient(180deg,
+            rgba(11,7,5,.42) 0%,
+            rgba(11,7,5,.28) 28%,
+            rgba(11,7,5,.66) 64%,
+            rgba(11,7,5,.98) 100%
+          ) !important;
+      }
+
+      .hero::after {
+        box-shadow:
+          inset 0 78px 80px rgba(11,7,5,.72),
+          inset 0 -92px 120px rgba(11,7,5,.96),
+          inset 0 0 70px rgba(0,0,0,.20) !important;
+      }
+
+      .eyebrow {
+        margin-bottom: 18px !important;
+        background: rgba(11,7,5,.56) !important;
+        border-color: rgba(242,106,27,.38) !important;
+        backdrop-filter: blur(14px) !important;
+        -webkit-backdrop-filter: blur(14px) !important;
+      }
+
+      h1 {
+        font-size: clamp(3.05rem, 13.4vw, 4.15rem) !important;
+        line-height: .96 !important;
+        letter-spacing: -.055em !important;
+        text-shadow: 0 9px 36px rgba(0,0,0,.78) !important;
+      }
+
+      .hero-sub {
+        max-width: 95% !important;
+        margin-top: 20px !important;
+        color: #E0C3A2 !important;
+        font-size: 1.02rem !important;
+        line-height: 1.58 !important;
+        text-shadow: 0 4px 22px rgba(0,0,0,.76) !important;
+      }
+
+      .hero-actions {
+        margin-top: 28px !important;
+        gap: 12px !important;
+      }
+
+      .hero-actions .btn {
+        min-height: 58px !important;
+        border-radius: 20px !important;
+      }
+
+      .hero-actions .btn-outline {
+        background: rgba(11,7,5,.52) !important;
+        border-color: rgba(255,255,255,.16) !important;
+        backdrop-filter: blur(14px) !important;
+        -webkit-backdrop-filter: blur(14px) !important;
+      }
+
+      .scroll-cue {
+        display: none !important;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .hero-inner {
+        padding: 124px 22px 50px !important;
+      }
+
+      .hero video {
+        object-position: 66% 38% !important;
+        opacity: .76 !important;
+      }
+
+      h1 {
+        font-size: clamp(2.95rem, 13.1vw, 3.95rem) !important;
+      }
+    }
+
+  
+    /* =========================================================
+       MOBILE ONLY — intro segura:
+       1) video claro 0.8s
+       2) se oscurece
+       3) aparece hero
+       PC intacta
+       ========================================================= */
+    @media (max-width: 760px) {
+      .hero {
+        min-height: 88svh !important;
+        background: #0B0705 !important;
+        overflow: hidden !important;
+      }
+
+      .hero-inner {
+        min-height: 88svh !important;
+        padding: 126px 24px 64px !important;
+        align-items: flex-end !important;
+      }
+
+      .hero video {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: 68% 38% !important;
+        transform: translateX(0) scale(1.05) !important;
+        opacity: .58 !important;
+        filter: saturate(1.04) contrast(1.03) brightness(.64) !important;
+        animation: brasaMobileVideoSettle 1.35s cubic-bezier(.22,1,.36,1) .05s both !important;
+      }
+
+      .hero::before {
+        animation: brasaMobileOverlaySettle 1.35s cubic-bezier(.22,1,.36,1) .05s both !important;
+        background:
+          radial-gradient(circle at 72% 34%, rgba(242,106,27,.12), transparent 31%),
+          linear-gradient(90deg,
+            rgba(11,7,5,.94) 0%,
+            rgba(11,7,5,.86) 42%,
+            rgba(11,7,5,.44) 68%,
+            rgba(11,7,5,.62) 100%
+          ),
+          linear-gradient(180deg,
+            rgba(11,7,5,.42) 0%,
+            rgba(11,7,5,.28) 28%,
+            rgba(11,7,5,.66) 64%,
+            rgba(11,7,5,.98) 100%
+          ) !important;
+      }
+
+      .hero::after {
+        box-shadow:
+          inset 0 82px 84px rgba(11,7,5,.70),
+          inset 0 -118px 140px rgba(11,7,5,.97),
+          inset 0 0 70px rgba(0,0,0,.18) !important;
+      }
+
+      .hero-copy {
+        position: relative !important;
+        z-index: 5 !important;
+        max-width: 100% !important;
+        opacity: 1 !important;        /* estado final seguro */
+        transform: none !important;   /* estado final seguro */
+        filter: none !important;      /* estado final seguro */
+        animation: brasaMobileHeroIn .55s cubic-bezier(.22,1,.36,1) .88s both !important;
+      }
+
+      .eyebrow {
+        margin-bottom: 18px !important;
+        background: rgba(11,7,5,.56) !important;
+        border-color: rgba(242,106,27,.38) !important;
+        backdrop-filter: blur(14px) !important;
+        -webkit-backdrop-filter: blur(14px) !important;
+      }
+
+      h1 {
+        font-size: clamp(3.05rem, 13.4vw, 4.15rem) !important;
+        line-height: .96 !important;
+        letter-spacing: -.055em !important;
+        text-shadow: 0 9px 36px rgba(0,0,0,.78) !important;
+      }
+
+      .hero-sub {
+        max-width: 95% !important;
+        margin-top: 20px !important;
+        color: #E0C3A2 !important;
+        font-size: 1.02rem !important;
+        line-height: 1.58 !important;
+        text-shadow: 0 4px 22px rgba(0,0,0,.76) !important;
+      }
+
+      .hero-actions {
+        margin-top: 28px !important;
+        gap: 12px !important;
+      }
+
+      .hero-actions .btn {
+        min-height: 58px !important;
+        border-radius: 20px !important;
+      }
+
+      .hero-actions .btn-outline {
+        background: rgba(11,7,5,.52) !important;
+        border-color: rgba(255,255,255,.16) !important;
+        backdrop-filter: blur(14px) !important;
+        -webkit-backdrop-filter: blur(14px) !important;
+      }
+
+      .scroll-cue {
+        display: none !important;
+      }
+
+      @keyframes brasaMobileVideoSettle {
+        0% {
+          opacity: .98;
+          filter: saturate(1.16) contrast(1.08) brightness(1.05);
+          transform: translateX(0) scale(1.07);
+        }
+        55% {
+          opacity: .96;
+          filter: saturate(1.14) contrast(1.07) brightness(.98);
+          transform: translateX(0) scale(1.055);
+        }
+        100% {
+          opacity: .58;
+          filter: saturate(1.04) contrast(1.03) brightness(.64);
+          transform: translateX(0) scale(1.05);
+        }
+      }
+
+      @keyframes brasaMobileOverlaySettle {
+        0% {
+          opacity: .36;
+        }
+        55% {
+          opacity: .55;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      @keyframes brasaMobileHeroIn {
+        0% {
+          opacity: 0;
+          transform: translateY(14px);
+          filter: blur(4px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+          filter: blur(0);
+        }
+      }
+    }
+
+    @media (max-width: 420px) {
+      .hero {
+        min-height: 86svh !important;
+      }
+
+      .hero-inner {
+        min-height: 86svh !important;
+        padding: 118px 22px 62px !important;
+      }
+
+      .hero video {
+        object-position: 65% 38% !important;
+      }
+
+      h1 {
+        font-size: clamp(2.95rem, 13.1vw, 3.95rem) !important;
+      }
+    }
+
+    @media (max-width: 760px) and (prefers-reduced-motion: reduce) {
+      .hero video,
+      .hero::before,
+      .hero-copy {
+        animation: none !important;
+      }
+
+      .hero-copy {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+      }
+
+      .hero video {
+        opacity: .58 !important;
+        filter: saturate(1.04) contrast(1.03) brightness(.64) !important;
+      }
+    }
+
   </style>
 </head>
 
