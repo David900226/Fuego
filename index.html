@@ -3739,6 +3739,24 @@
       .mobile-intro-poster { display: none !important; }
     }
 
+    /* Ajuste para short: mismo tamano, video mas hacia la derecha */
+    @media (min-width: 901px) {
+      .hero video#heroVideo {
+        object-position: 215% 60% !important;
+        transform: translateX(15%) scale(.78) !important;
+      }
+    }
+
+    @media (min-width: 901px) and (max-width: 1250px) {
+      .hero video#heroVideo {
+        left: auto !important;
+        right: -18vw !important;
+        object-position: center center !important;
+        transform: scale(.78) !important;
+        transform-origin: right center !important;
+      }
+    }
+
   </style>
 </head>
 
